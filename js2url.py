@@ -1,13 +1,10 @@
 from __future__ import with_statement
-import os
+import sys, os
 
-import app
-
-app = app.CMDApp('userscript2bookmarklet')
-app.addArg(['s', '-source'], 'javascript inside <source> container', arglist = str, mandatory = True)
-app.addArg(['n', '-name'], 'name of finished link/bookmarklet', arglist = str)
-app.parseArgs()
-
+if len(sys.argv) != 2:
+    print('Usage: python js2url.py <path to javascript source>')
+    sys.exit()
+    
 lHull = ''' 
         javascript: (function(d) {
             var j = '';
@@ -31,7 +28,7 @@ blHull = '''
         '''
        
 jssource = ''
-with open(app.arglist('s')[0], 'r') as f:
+with open(sys.argv[1], 'r') as f:
     # remove newlines & quotes and escape "'"
     for line in f.readlines():
         jssource += line.strip() \
@@ -39,17 +36,17 @@ with open(app.arglist('s')[0], 'r') as f:
                         .replace('\'', '\\\'')
 
 # 1 cmd in booklet can only be ~ 80 chars
-jLen = 80
 jPrefix = 'j += '
-jssource = lHull % (';'.join([(jPrefix + '\'' + jssource[k : k + jLen - 2] + '\'') for k in range(0, 
-                                                                                                  len(jssource), 
-                                                                                                  jLen - 2)]) + ';')
+jLen = 80 - len(jPrefix) - 2
+jssource = lHull % (';'.join([(jPrefix + '\'' + jssource[k : k + jLen] + '\'') for k in range(0, len(jssource), jLen)]) + ';')
 jssource = ''.join([line.strip() for line in jssource.strip().split('\n')])
 blsource = blHull % (jssource, jssource)
 blsource = '\n'.join([line.strip() for line in blsource.strip().split('\n')])
 
 print(blsource)
 
-outfile = (app.arglist('n')[0] + '.url') if app.gotArg('n') else os.path.basename(app.arglist('s')[0]).split('.')[0] + '.url'
+outfile = os.path.basename(app.arglist('s')[0]).split('.')[0] + '.url'
 with open(outfile, 'w') as f:
     f.write(blsource)
+    
+print('Saved as "%s"!' % outfile)
