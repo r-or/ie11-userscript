@@ -24,5 +24,5 @@ for (var idx = 0; idx < divs.length; ++idx) {
 ```
 Conversion:
 ```
-python js2url -s js.js -n "purge-div"
+python js2url js.js
 ```
