@@ -6,7 +6,7 @@ If for whatever reason you still have to use IE11 you can add user scripts via "
 Adding bookmarklets has a few catches:
 * there is a limit of characters one javascript command can have inside the bookmarklet (somewhere above 80)
 * there cannot be a newline inside the bookmarklet
-* well, it's 2017 and IE11 is old... which limits what can be / how it can be done.
+* it's 2017 and IE11 is old... which limits what can be / how it can be done.
 
 Those issues are now a thing of the past! (Well except the last one)
 
