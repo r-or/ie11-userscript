@@ -8,7 +8,9 @@ Adding bookmarklets has a few catches:
 * there cannot be a newline inside the bookmarklet
 * well, it's 2017 and IE11 is old... which limits what can be / how it can be done.
 
-This script just takes a javascript source code file as input and outputs the .url bookmarklet which then can be placed in the "Favourites" folder inside ones home folder. Then it appears on the Favourites bar in IE. Click it to apply the script on the page you're currently visiting!
+Those issues are now a thing of the past! (Well except the last one)
+
+This script just takes a javascript source code file as input, converts it using the rules above and outputs the .url bookmarklet which then can be placed in the "Favourites" folder inside ones home folder. Then it appears on the Favourites bar in IE. Click it to apply the script on the page you're currently visiting!
 
 An example:
 js.js:
@@ -24,5 +26,5 @@ for (var idx = 0; idx < divs.length; ++idx) {
 ```
 Conversion:
 ```
-python js2url js.js
+python js2url.py js.js
 ```
