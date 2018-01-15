@@ -28,3 +28,14 @@ Conversion:
 ```
 python js2url.py js.js
 ```
+
+Output:
+```
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,15
+[InternetShortcut]
+URL=javascript:(function(d) {var jscript = '';jscript += 'console.log(\'installation seems to have worked, yay!\');';jscript += 'var divs = document.getElementsByTagName(\'div\');';jscript += 'for (var idx = 0; idx < divs.length; ++idx) {';jscript += 'if (divs[idx].hasAttribute(\'class\') && ';jscript += 'divs[idx].getAttribute(\'class\').indexOf(\'-detected\') > 0) {';jscript += 'console.log(\'found item... !PURGE!\');';jscript += 'divs[idx].parentNode.removeChild(divs[idx]);';jscript += '} else {';/*jscript += 'console.log(\'discarded item: \');console.log(divs[idx]);';*/jscript += '}';jscript += '}';var body = d.getElementsByTagName('body')[0];var script = d.createElement('script');var node = d.createTextNode(jscript);script.type = 'text/javascript';script.appendChild(node);body.appendChild(script);}(window.document))
+IDList=
+[Bookmarklet]
+ExtendedURL=javascript:(function(d) {var jscript = '';jscript += 'console.log(\'installation seems to have worked, yay!\');';jscript += 'var divs = document.getElementsByTagName(\'div\');';jscript += 'for (var idx = 0; idx < divs.length; ++idx) {';jscript += 'if (divs[idx].hasAttribute(\'class\') && ';jscript += 'divs[idx].getAttribute(\'class\').indexOf(\'-detected\') > 0) {';jscript += 'console.log(\'found item... !PURGE!\');';jscript += 'divs[idx].parentNode.removeChild(divs[idx]);';jscript += '} else {';/*jscript += 'console.log(\'discarded item: \');console.log(divs[idx]);';*/jscript += '}';jscript += '}';var body = d.getElementsByTagName('body')[0];var script = d.createElement('script');var node = d.createTextNode(jscript);script.type = 'text/javascript';script.appendChild(node);body.appendChild(script);}(window.document))
+```
