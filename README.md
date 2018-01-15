@@ -25,12 +25,12 @@ for (var idx = 0; idx < divs.length; ++idx) {
 }
 ```
 Conversion:
-js.url:
 ```
 python js2url.py js.js
 ```
 
 Output:
+js.url:
 ```
 [{000214A0-0000-0000-C000-000000000046}]
 Prop3=19,15
